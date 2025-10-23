@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Turret+Road:wght@200;300;400;500;700;800&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /*Header*/
+
+    header {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 50px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(20, 255, 114, 0.1);
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header .logo h1 {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    header nav {
+      display: flex;
+      gap: 25px;
+    }
+    header nav a {
+      color: #ffffff;
+      padding: 8px 20px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border-radius: 25px;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    header nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #14ff72;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    a.active {
+      background: rgba(20, 255, 114, 0.1);
+      color: #14ff72;
+    }
+    a.active::after {
+      width: 50%;
+    }
+    header nav a:hover {
+      color: #14ff72;
+      transform: translateY(-2px);
+    }
+    header nav a:hover::after {
+      width: 80%;
+    }
+
+    /*Carousel*/
+
+    .carousel {
+      width: 100vw;
+      height: 100vh;
+      margin-top: -50px;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel .list .item {
+      width: 180px;
+      height: 250px;
+      position: absolute;
+      top: 80%;
+      transform: translateY(-70%);
+      left: 70%;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      background-position: 50% 50%;
+      background-size: cover;
+      z-index: 100;
+      transition: 1s;
+    }
+    .carousel .list .item:nth-child(1),
+    .carousel .list .item:nth-child(2) {
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+      border-radius: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .carousel .list .item:nth-child(3) {
+      left: 67%;
+    }
+    .carousel .list .item:nth-child(4) {
+      left: calc(67% + 200px);
+    }
+    .carousel .list .item:nth-child(5) {
+      left: calc(67% + 400px);
+    }
+    .carousel .list .item:nth-child(6) {
+      left: calc(67% + 600px);
+    }
+    .carousel .list .item:nth-child(n + 7) {
+      left: calc(67% + 800px);
+      opacity: 0;
+    }
+    .item .content {
+      position: absolute;
+      top: 50%;
+      left: 100px;
+      transform: translateY(-50%);
+      width: 400px;
+      text-align: left;
+      color: #ffffff;
+      display: none;
+    }
+    .list .item:nth-child(2) .content {
+      display: block;
+    }
+    .content .title {
+      font-size: 80px;
+      text-transform: uppercase;
+      color: #14ff72cb;
+      font-weight: bold;
+      line-height: 1;
+      opacity: 0;
+      letter-spacing: 2px;
+      animation: animate 1s ease-in-out 0.3s 1 forwards;
+    }
+    .content .name {
+      font-size: 90px;
+      text-transform: uppercase;
+      font-weight: bold;
+      line-height: 1.1;
+      text-shadow: 3px 4px 4px rgba(20, 255, 114, 0.3);
+      opacity: 0;
+      background: linear-gradient(45deg, #fff, #14ff72cb);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animate 1s ease-in-out 0.6s 1 forwards;
+    }
+    .content .des {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.9);
+      opacity: 0;
+      animation: animate 1s ease-in-out 0.9s 1 forwards;
+    }
+    .content .btn {
+      margin-left: 5px;
+      opacity: 0;
+      animation: animate 1s ease-in-out 1.2s 1 forwards;
+    }
+    @keyframes animate {
+      from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+      }
+    }
+    .content .btn button {
+      padding: 12px 28px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border: 2px solid #14ff72cb;
+      background: #14ff72cb;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .content .btn button a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
+    }
+    .content .btn button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(20, 255, 114, 0.4);
+    }
+    .content .btn button:active {
+      transform: translateY(1px);
+    }
+    .arrows {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      width: 100%;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    .arrows button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: rgba(20, 255, 114, 0.8);
+      color: #ffffff;
+      border: none;
+      outline: none;
+      font-size: 24px;
+      font-family: monospace;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      pointer-events: auto;
+      backdrop-filter: blur(5px);
+    }
+    .arrows button:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: #14ff72cb;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(20, 255, 114, 0.3);
+    }
+    .carousel .timeRunning {
+      position: absolute;
+      z-index: 1000;
+      width: 0%;
+      height: 4px;
+      background-color: #14ff72cb;
+      left: 0;
+      top: 0;
+      animation: runningTime 7s linear 1 forwards;
+    }
+    @keyframes runningTime {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /*Media Queries*/
+
+    @media screen and (max-width: 999px) {
+      header {
+        padding-left: 50px;
+      }
+      .list .item .content {
+        left: 50px;
+      }
+      .content .title,
+      .content .name {
+        font-size: 70px;
+      }
+      .content .des {
+        font-size: 16px;
+      }
+    }
+
+    @media screen and (max-width: 690px) {
+      header {
+        padding: 0 20px;
+      }
+      header nav {
+        gap: 10px;
+      }
+      header nav a {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+      .list .item .content {
+        top: 40%;
+      }
+      .content .title,
+      .content .name {
+        font-size: 45px;
+      }
+      .content .btn button {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+      .logo h1 {
+        font-size: 20px;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      .item .content {
+        width: 300px;
+      }
+      .list .item .content {
+        left: 20px;
+      }
+    }
+  </style>
+
+  <body>
+    <header>
+      <div class="logo">
+        <h1 style="color: #fff; font-size: 24px">
+          Calc<span style="color: #14ff72cb">Hub</span>
+        </h1>
+      </div>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="simple_calc.html">Simple Calculator</a>
+        <a href="smartwatch.html">Smart Watch</a>
+        <a href="3d_calculator.html">3D Design</a>
+        <a href="futureCalc.html">Future Calc</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <div class="carousel">
+      <div class="list">
+        <div
+          class="item"
+          style="background-image: url('image/smart_watch.png')"
+        >
+          <div class="content">
+            <div class="title">Smart Watch</div>
+            <div class="name">Innovation</div>
+            <div class="des">
+              Revolutionize your calculations with our cutting-edge smartwatch
+              calculator. Perfect blend of style, precision, and convenience at
+              your wrist.
+            </div>
+            <div class="btn">
+              <button><a href="smartwatch.html">Discover Innovation</a></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('image/simple.png')">
+          <div class="content">
+            <div class="title">Simple &</div>
+            <div class="name">Elegant</div>
+            <div class="des">
+              Experience simplicity redefined. Our modern calculator combines
+              minimalist design with powerful functionality for effortless
+              calculations.
+            </div>
+            <div class="btn">
+              <button>
+                <a href="simple_calc.html">Experience Simplicity</a>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item" style="background-image: url('image/3d_calc.png')">
+          <div class="content">
+            <div class="title">3D Design</div>
+            <div class="name">Excellence</div>
+            <div class="des">
+              Step into the future with our immersive 3D calculator. Where
+              cutting-edge technology meets stunning visual design for an
+              unparalleled experience.
+            </div>
+            <div class="btn">
+              <button><a href="3d_calculator.html">Explore 3D</a></button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="item"
+          style="background-image: url('image/future_calc.png')"
+        >
+          <div class="content">
+            <div class="title">Future of</div>
+            <div class="name">Calculation</div>
+            <div class="des">
+              Welcome to tomorrow's computation. Our futuristic calculator
+              pushes boundaries with advanced features and revolutionary design.
+            </div>
+            <div class="btn">
+              <button><a href="futureCalc.html">See the Future</a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrows">
+        <button class="prev"><</button>
+        <button class="next">></button>
+      </div>
+
+      <div class="timeRunning"></div>
+    </div>
+
+    <script>
+      var nextBtn = document.querySelector(".next");
+      var prevBtn = document.querySelector(".prev");
+      var carousel = document.querySelector(".carousel");
+      var list = document.querySelector(".list");
+      var item = document.querySelector(".item");
+      var runningTime = document.querySelector(".timeRunning");
+
+      let timeRunning = 1000;
+      let timeAutoNext = 4000;
+
+      nextBtn.onclick = function () {
+        showSlider("next");
+      };
+
+      prevBtn.onclick = function () {
+        showSlider("prev");
+      };
+
+      let runTimeOut;
+
+      let runNextAuto = setTimeout(() => {
+        nextBtn.click();
+      }, timeAutoNext);
+
+      function resetTimeAnimation() {
+        runningTime.style.animation = "none";
+        runningTime.offsetHeight;
+        runningTime.style.animation = null;
+        runningTime.style.animation = "runningTime 4s linear 1 forwards";
+      }
+
+      function showSlider(type) {
+        let sliderItemsDom = list.querySelectorAll(".carousel .list .item");
+
+        if (type === "next") {
+          list.appendChild(sliderItemsDom[0]);
+          carousel.classList.add("next");
+        } else {
+          list.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
+          carousel.classList.add("prev");
+        }
+
+        clearTimeout(runTimeOut);
+
+        runTimeOut = setTimeout(() => {
+          carousel.classList.remove("next");
+          carousel.classList.remove("prev");
+        }, timeRunning);
+
+        clearTimeout(runNextAuto);
+
+        runNextAuto = setTimeout(() => {
+          nextBtn.click();
+        }, timeAutoNext);
+
+        resetTimeAnimation();
+      }
+
+      resetTimeAnimation();
+    </script>
+  </body>
+</html>
