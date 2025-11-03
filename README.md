@@ -8,6 +8,7 @@ Each calculator offers a unique visual experience, blending functionality and mo
 ## 🚀 Live Demo
 
 🌐 **Website:** [https://calchub.anubhav.sbs/](https://calchub.anubhav.sbs/)
+
 🖼️ **Preview:**
 ![Calc-Hub Preview](https://calchub.anubhav.sbs/image/websiteImg.png)
 
