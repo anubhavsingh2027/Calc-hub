@@ -7,10 +7,10 @@ Each calculator offers a unique visual experience, blending functionality and mo
 
 ## 🚀 Live Demo
 
-🌐 **Website:** [https://calchub.anubhav.sbs/](https://calchub.anubhav.sbs/)
+🌐 **Website:** [https://calc-hub-mu.vercel.app/](https://calc-hub-mu.vercel.app/)
 
 🖼️ **Preview:**
-![Calc-Hub Preview](https://calchub.anubhav.sbs/image/websiteImg.png)
+![Calc-Hub Preview](https://calc-hub-mu.vercel.app/image/websiteImg.png)
 
 ---
 
@@ -45,26 +45,25 @@ Calc-hub/
 ├── smartwatch.html # Smartwatch-inspired calculator
 └── index.html # Landing page linking to all designs
 
-
 ---
 
 ## 🛠️ Technologies Used
 
-| Category | Technologies |
-|-----------|--------------|
-| 🎨 **Frontend** | HTML5, CSS3, JavaScript |
+| Category               | Technologies                                         |
+| ---------------------- | ---------------------------------------------------- |
+| 🎨 **Frontend**        | HTML5, CSS3, JavaScript                              |
 | 💻 **Styling Effects** | Gradients, Shadows, 3D Transforms, Hover Transitions |
-| 🧰 **Version Control** | Git & GitHub |
+| 🧰 **Version Control** | Git & GitHub                                         |
 
 ---
 
 ## 🧮 Available Calculators
 
-| Calculator | Description |
-|-------------|-------------|
-| 🧱 **Simple Calculator** | Clean, classic layout for basic operations |
-| 🌌 **Future Calculator** | Glowing neon buttons and dark futuristic style |
-| 🧊 **3D Calculator** | Modern design with realistic 3D effects |
+| Calculator                   | Description                                               |
+| ---------------------------- | --------------------------------------------------------- |
+| 🧱 **Simple Calculator**     | Clean, classic layout for basic operations                |
+| 🌌 **Future Calculator**     | Glowing neon buttons and dark futuristic style            |
+| 🧊 **3D Calculator**         | Modern design with realistic 3D effects                   |
 | ⌚ **Smartwatch Calculator** | Compact circular interface inspired by smartwatch screens |
 
 ---
@@ -72,6 +71,7 @@ Calc-hub/
 ## 🧠 Learning Goals
 
 Calc-Hub serves as a fun and educational project to explore:
+
 - DOM manipulation and event handling in JavaScript
 - Designing elegant UI layouts using pure CSS
 - Implementing functional logic with clean, readable code
@@ -93,6 +93,6 @@ Calc-Hub serves as a fun and educational project to explore:
 Each calculator tells a small design story — from simplicity to futuristic imagination.
 
 > “Even a calculator can look beautiful — when built with passion.”
-> — *Anubhav Singh*
+> — _Anubhav Singh_
 
 ⭐ **Star this project** if you enjoyed exploring creative frontend design!
